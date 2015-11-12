@@ -1,3 +1,3 @@
 # go-libtest
 
-Cross-language library tester written in Go.
+Cross-language library tester written in Go. 

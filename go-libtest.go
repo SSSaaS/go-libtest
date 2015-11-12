@@ -7,7 +7,7 @@ import (
 )
 
 func main() {
-	languages := []string{"Ruby", "Golang", "Python"}
+	languages := []string{"Ruby", "Golang", "Python2", "Python3"}
 	fmt.Println("Cross checking with languages: ")
 	fmt.Print("\t")
 	fmt.Println(languages)

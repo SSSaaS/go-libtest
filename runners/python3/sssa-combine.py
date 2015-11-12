@@ -6,10 +6,10 @@ import sys
 sys.path.insert(0, './libs/sssa-python')
 from SSSA import sssa
 
-fi = open('./tmp/Python_Combine_Input.json', 'r')
+fi = open('./tmp/Python3_Combine_Input.json', 'r')
 input = fi.read()
 args = json.loads(input)
-fo = open('./tmp/Python_Combine_Output.json', 'w')
+fo = open('./tmp/Python3_Combine_Output.json', 'w')
 sss = sssa()
 for index,a in enumerate(args):
 	args[index] = a.encode('utf-8')

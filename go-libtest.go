@@ -1,12 +1,18 @@
 package main
 
 import (
+	"fmt"
 	"reflect"
 	"./tests"
 )
 
 func main() {
-	languages := []string{"Ruby", "Golang"}
+	languages := []string{"Ruby", "Golang", "Python"}
+	fmt.Println("Cross checking with languages: ")
+	fmt.Print("\t")
+	fmt.Println(languages)
+	fmt.Print("\n")
+
 	object := tests.Tests{}
 	object.Languages = languages
 	tests := reflect.TypeOf(object)

@@ -1,27 +1,41 @@
 package main
 
 import (
+	"encoding/json"
+	"github.com/SSSaaS/go-libtest/settings"
+	"github.com/SSSaaS/go-libtest/tests"
+	"io/ioutil"
+	"time"
 	"fmt"
-	"reflect"
-	"./tests"
+	"os"
 )
 
 func main() {
-	languages := []string{"Ruby", "Golang", "Python2", "Python3"}
-	fmt.Println("Cross checking with languages: ")
-	fmt.Print("\t")
-	fmt.Println(languages)
-	fmt.Print("\n")
+	settings_file, err := ioutil.ReadFile("libtest.json")
+	if err != nil {
+		panic(err)
+	}
 
-	object := tests.Tests{}
-	object.Languages = languages
-	tests := reflect.TypeOf(object)
-	for i := 0; i < tests.NumMethod(); i++ {
-		method := tests.Method(i)
-		if (method.Name[0:5] == "XTest") {
-			object.Method = method.Name
-			in := []reflect.Value{reflect.ValueOf(object)}
-			method.Func.Call(in)
+	os.RemoveAll("./tmp")
+	os.Mkdir("./tmp", 0777)
+
+	var settings_struct settings.Settings
+	err = json.Unmarshal(settings_file, &settings_struct)
+	if err != nil {
+		panic(err)
+	}
+
+	t1 := time.Now()
+	for t := range settings_struct.Tests {
+		test := settings_struct.Tests[t]
+		tester := tests.Tests{test.Method, settings_struct}
+		if test.Type == "XChain" {
+			tester.XChain(test.Data, test.Input, test.Output, test.Result)
 		}
 	}
+
+	duration := time.Since(t1)
+	fmt.Println("------")
+	fmt.Println("total:", fmt.Sprintf("%.3f", duration.Seconds()), "s")
+	os.RemoveAll("./tmp")
 }

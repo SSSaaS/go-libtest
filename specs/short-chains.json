@@ -1,0 +1,121 @@
+{
+	"Languages":
+	[
+		{
+			"Name": "Ruby1.9",
+			"Type": "Ruby",
+			"Precommand": "rbenv global 1.9.3-p551",
+			"Command": "ruby"
+		},
+		{
+			"Name": "Ruby2.2",
+			"Type": "Ruby",
+			"Precommand": "rbenv global 2.2.2",
+			"Command": "ruby"
+		},
+		{
+			"Name": "Python2",
+			"Type": "Python",
+			"Command": "python2"
+		},
+		{
+			"Name": "Python3",
+			"Type": "Python",
+			"Command": "python3"
+		}
+	],
+	"Tests": [
+		{
+			"Type": "XChain",
+			"Method": "Null string",
+			"Data": ["2", "2", "\u0000\u0000\u0000\u0000"],
+			"Input": "SSSA-Create",
+			"Output": "SSSA-Combine",
+			"Result": ""
+		},
+		{
+			"Type": "XChain",
+			"Method": "Japanese hello world",
+			"Data": ["2", "2", "こんにちは、世界"],
+			"Input": "SSSA-Create",
+			"Output": "SSSA-Combine",
+			"Result": "こんにちは、世界"
+		},
+		{
+			"Type": "XChain",
+			"Method": "Chinese hello world",
+			"Data": ["2", "2", "哈囉世界"],
+			"Input": "SSSA-Create",
+			"Output": "SSSA-Combine",
+			"Result": "哈囉世界"
+		},
+		{
+			"Type": "XChain",
+			"Method": "Hello World!",
+			"Data": ["2", "2", "Hello World!"],
+			"Input": "SSSA-Create",
+			"Output": "SSSA-Combine",
+			"Result": "Hello World!"
+		},
+		{
+			"Type": "XChain",
+			"Method": "Unicode across int break",
+			"Data": ["2", "2", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哈囉世界"],
+			"Input": "SSSA-Create",
+			"Output": "SSSA-Combine",
+			"Result": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哈囉世界"
+		},
+		{
+			"Type": "XChain",
+			"Method": "Long strings",
+			"Data": ["2", "2", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"],
+			"Input": "SSSA-Create",
+			"Output": "SSSA-Combine",
+			"Result": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+		},
+		{
+			"Type": "XChain",
+			"Method": "Insane strings",
+			"Data": ["2", "2", "rUoD2Y2FnlJioTE2XOBCSeM1v8UleTt6QqTLG5YaBrLKdQQLAE7ZKEEVaY7IlNP1g4k4PLBkW2aQPvUrs3Inz4ohaZpdG2cfiFmA7EX5NJF84Ah6vOYhfIUNwk9MN1yTm74DhUQdIIxO9tWSPI7DxYEBW1WFXJUelnKVOG4oVQiGBys0Y9mv"],
+			"Input": "SSSA-Create",
+			"Output": "SSSA-Combine",
+			"Result": "rUoD2Y2FnlJioTE2XOBCSeM1v8UleTt6QqTLG5YaBrLKdQQLAE7ZKEEVaY7IlNP1g4k4PLBkW2aQPvUrs3Inz4ohaZpdG2cfiFmA7EX5NJF84Ah6vOYhfIUNwk9MN1yTm74DhUQdIIxO9tWSPI7DxYEBW1WFXJUelnKVOG4oVQiGBys0Y9mv"
+		},
+		{
+			"Type": "XChain",
+			"Method": "Middle-null string",
+			"Data": ["2", "2", "a\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000a"],
+			"Input": "SSSA-Create",
+			"Output": "SSSA-Combine",
+			"Result": "a\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000a"
+		}
+	],
+	"Functions": [
+		{
+			"Name": "SSSA-Create",
+			"Code": [
+				{
+					"Type": "Ruby",
+					"Contents": "# - Ruby - #\nrequire 'json'\nrequire_relative '../libs/sssa-ruby/lib/sssa.rb'\ninput = File.read('<INPUTFILE>')\nargs = JSON.parse(input)\no = File.new('<OUTPUTFILE>', 'w')\no.write SSSA::create(args[0].to_i, args[1].to_i, args[2]).to_json\no.close\n"
+				},
+				{
+					"Type": "Python",
+					"Contents": "# - Python - #\nimport json\nimport sys\nsys.path.insert(0, './libs/sssa-python')\nfrom SSSA import sssa\nfi = open('<INPUTFILE>', 'r')\ninput = fi.read()\nargs = json.loads(input)\nfo = open('<OUTPUTFILE>', 'w')\nsss = sssa()\nfo.write(json.dumps(sss.create(int(args[0]), int(args[1]), args[2].encode('utf-8'))))\nfo.close()\n"
+				}
+			]
+		},
+		{
+			"Name": "SSSA-Combine",
+			"Code": [
+				{
+					"Type": "Ruby",
+					"Contents": "# - Ruby - #\nrequire 'json'\nrequire_relative '../libs/sssa-ruby/lib/sssa.rb'\n\ninput = File.read('<INPUTFILE>')\nargs = JSON.parse(input)\no = File.new('<OUTPUTFILE>', 'w')\no.write SSSA::combine(args).to_json\no.close\n"
+				},
+				{
+					"Type": "Python",
+					"Contents": "# - Python - #\nimport json\nimport sys\nsys.path.insert(0, './libs/sssa-python')\nfrom SSSA import sssa\nfi = open('<INPUTFILE>', 'r')\ninput = fi.read()\nargs = json.loads(input)\nfo = open('<OUTPUTFILE>', 'w')\nsss = sssa()\nfor index,a in enumerate(args):\n\targs[index] = a.encode('utf-8')\n\nfo.write(json.dumps(sss.combine(args)))\nfo.close()\n"
+				}
+			]
+		}
+	]
+}

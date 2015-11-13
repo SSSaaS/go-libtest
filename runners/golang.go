@@ -1,7 +1,7 @@
 package runners
 
 import (
-	"../libs/sssa-golang"
+	"github.com/SSSaaS/go-libtest/libs/sssa-golang"
 	"strconv"
 )
 

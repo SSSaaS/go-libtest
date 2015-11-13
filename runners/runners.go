@@ -42,7 +42,7 @@ func (r *Runners) CallRunner(language settings.Langs, function string) {
 					input, err := json.Marshal(r.Input)
 					r.Check(err)
 
-					err = ioutil.WriteFile(basepath + "prog", []byte(prog_data), 0644)
+					err = ioutil.WriteFile(basepath + "prog." + language.Extension, []byte(prog_data), 0644)
 					r.Check(err)
 
 					err = ioutil.WriteFile(basepath + "input", input, 0644)
@@ -60,7 +60,7 @@ func (r *Runners) CallRunner(language settings.Langs, function string) {
 					}
 
 					if language.Command != "" {
-						args := strings.Split(language.Command + " " + basepath + "prog", " ")
+						args := strings.Split(language.Command + " " + basepath + "prog." + language.Extension, " ")
 						comm := exec.Command(args[0], args[1:]...)
 						message, err := comm.CombinedOutput()
 						if (err != nil) {

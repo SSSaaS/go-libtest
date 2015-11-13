@@ -3,6 +3,7 @@ package settings
 type Langs struct {
 	Name        string
 	Type        string
+	Extension  string
 	Precommand  string
 	Command     string
 	Postcommand string

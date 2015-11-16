@@ -32,6 +32,12 @@
 			"Type": "Go",
 			"Extension": "go",
 			"Command": "go run"
+		},
+		{
+			"Name": "Node",
+			"Type": "JS",
+			"Extension": "js",
+			"Command": "node"
 		}
 	],
 	"Tests": [
@@ -115,6 +121,10 @@
 				{
 					"Type": "Go",
 					"Contents": "package main\n\nimport (\n\"github.com/SSSaaS/go-libtest/libs/sssa-golang\"\n\"io/ioutil\"\n\"encoding/json\"\n\"strconv\"\n)\nfunc main() {\ninput_data, _ := ioutil.ReadFile(\"<INPUTFILE>\")\nvar args []string\njson.Unmarshal(input_data, &args)\nmin, _ := strconv.Atoi(args[0])\nshares, _ := strconv.Atoi(args[1])\nsecret := string(args[2])\ndata := sssa.Create(min, shares, secret)\noutput, _ := json.Marshal(data)\nioutil.WriteFile(\"<OUTPUTFILE>\", output, 0644)\n}\n"
+				},
+				{
+					"Type": "JS",
+					"Contents": "var fs = require('fs');\nvar sssa = require('../libs/sssa-js');\nvar file = fs.readFileSync('<INPUTFILE>', 'utf8');\ndata = JSON.parse(file);\nfs.writeFileSync('<OUTPUTFILE>', JSON.stringify(sssa.create(parseInt(data[0]), parseInt(data[1]), data[2])));\n"
 				}
 			]
 		},
@@ -132,6 +142,10 @@
 				{
 					"Type": "Go",
 					"Contents": "package main\n\nimport (\n\"github.com/SSSaaS/go-libtest/libs/sssa-golang\"\n\"io/ioutil\"\n\"encoding/json\"\n)\nfunc main() {\ninput_data, _ := ioutil.ReadFile(\"<INPUTFILE>\")\nvar args []string\njson.Unmarshal(input_data, &args)\ndata := sssa.Combine(args)\noutput, _ := json.Marshal(data)\nioutil.WriteFile(\"<OUTPUTFILE>\", output, 0644)\n}\n"
+				},
+				{
+					"Type": "JS",
+					"Contents": "var fs = require('fs');\nvar sssa = require('../libs/sssa-js');\nvar file = fs.readFileSync('<INPUTFILE>', 'utf8');\ndata = JSON.parse(file);\nfs.writeFileSync('<OUTPUTFILE>', JSON.stringify(sssa.combine(data)));\n"
 				}
 			]
 		}

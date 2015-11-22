@@ -40,7 +40,7 @@ before_script:
     - ruby ./tests/all.rb
     - cd ../sssa-js
     - node ./test/sssa.js
-    - cd ../
+    - cd ../../
 
 script:
     - go run ./go-libtest.go ./specs/travis/*.json

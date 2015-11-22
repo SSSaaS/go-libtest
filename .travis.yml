@@ -1,0 +1,27 @@
+language: go
+
+go:
+    - 1.5
+
+addons:
+    apt:
+        packages:
+            - ruby1.9.3-full
+            - python2
+            - python3
+            - nodejs-legacy
+
+env:
+    - GOARCH=amd64
+
+before_script:
+    - mkdir libs
+    - cd libs
+    - git clone https://github.com/SSSaaS/sssa-golang
+    - git clone https://github.com/SSSaaS/sssa-python
+    - git clone https://github.com/SSSaaS/sssa-js
+    - git clone https://github.com/SSSaaS/sssa-ruby
+    - cd ../
+
+script:
+    - go run ./go-libtest.go ./specs/travis/*.json

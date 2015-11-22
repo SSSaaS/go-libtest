@@ -1,0 +1,145 @@
+{
+	"Languages":
+	[
+		{
+			"Name": "Ruby1.9",
+			"Type": "Ruby",
+			"Extension": "rb",
+			"Command": "ruby"
+		},
+		{
+			"Name": "Python2",
+			"Type": "Python",
+			"Extension": "py",
+			"Command": "python2"
+		},
+		{
+			"Name": "Python3",
+			"Type": "Python",
+			"Extension": "py",
+			"Command": "python3"
+		},
+		{
+			"Name": "Go",
+			"Type": "Go",
+			"Extension": "go",
+			"Command": "go run"
+		},
+		{
+			"Name": "Node",
+			"Type": "JS",
+			"Extension": "js",
+			"Command": "node"
+		}
+	],
+	"Tests": [
+		{
+			"Type": "XChain",
+			"Method": "Null string",
+			"Data": ["20", "200", "\u0000\u0000\u0000\u0000"],
+			"Input": "SSSA-Create",
+			"Output": "SSSA-Combine",
+			"Result": ""
+		},
+		{
+			"Type": "XChain",
+			"Method": "Japanese hello world",
+			"Data": ["5", "20", "こんにちは、世界"],
+			"Input": "SSSA-Create",
+			"Output": "SSSA-Combine",
+			"Result": "こんにちは、世界"
+		},
+		{
+			"Type": "XChain",
+			"Method": "Chinese hello world",
+			"Data": ["35", "40", "哈囉世界"],
+			"Input": "SSSA-Create",
+			"Output": "SSSA-Combine",
+			"Result": "哈囉世界"
+		},
+		{
+			"Type": "XChain",
+			"Method": "Hello World!",
+			"Data": ["45", "100", "Hello World!"],
+			"Input": "SSSA-Create",
+			"Output": "SSSA-Combine",
+			"Result": "Hello World!"
+		},
+		{
+			"Type": "XChain",
+			"Method": "Unicode across int break",
+			"Data": ["3", "10", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哈囉世界"],
+			"Input": "SSSA-Create",
+			"Output": "SSSA-Combine",
+			"Result": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa哈囉世界"
+		},
+		{
+			"Type": "XChain",
+			"Method": "Long strings",
+			"Data": ["11", "12", "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"],
+			"Input": "SSSA-Create",
+			"Output": "SSSA-Combine",
+			"Result": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+		},
+		{
+			"Type": "XChain",
+			"Method": "Insane strings",
+			"Data": ["15", "15", "rUoD2Y2FnlJioTE2XOBCSeM1v8UleTt6QqTLG5YaBrLKdQQLAE7ZKEEVaY7IlNP1g4k4PLBkW2aQPvUrs3Inz4ohaZpdG2cfiFmA7EX5NJF84Ah6vOYhfIUNwk9MN1yTm74DhUQdIIxO9tWSPI7DxYEBW1WFXJUelnKVOG4oVQiGBys0Y9mv"],
+			"Input": "SSSA-Create",
+			"Output": "SSSA-Combine",
+			"Result": "rUoD2Y2FnlJioTE2XOBCSeM1v8UleTt6QqTLG5YaBrLKdQQLAE7ZKEEVaY7IlNP1g4k4PLBkW2aQPvUrs3Inz4ohaZpdG2cfiFmA7EX5NJF84Ah6vOYhfIUNwk9MN1yTm74DhUQdIIxO9tWSPI7DxYEBW1WFXJUelnKVOG4oVQiGBys0Y9mv"
+		},
+		{
+			"Type": "XChain",
+			"Method": "Middle-null string",
+			"Data": ["1", "1", "a\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000a"],
+			"Input": "SSSA-Create",
+			"Output": "SSSA-Combine",
+			"Result": "a\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000a"
+		}
+	],
+	"Functions": [
+		{
+			"Name": "SSSA-Create",
+			"Code": [
+				{
+					"Type": "Ruby",
+					"Contents": "# - Ruby - #\nrequire 'json'\nrequire_relative '../libs/sssa-ruby/lib/sssa.rb'\ninput = File.read('<INPUTFILE>')\nargs = JSON.parse(input)\no = File.new('<OUTPUTFILE>', 'w')\no.write SSSA::create(args[0].to_i, args[1].to_i, args[2]).to_json\no.close\n"
+				},
+				{
+					"Type": "Python",
+					"Contents": "# - Python - #\nimport json\nimport sys\nsys.path.insert(0, './libs/sssa-python')\nfrom SSSA import sssa\nfi = open('<INPUTFILE>', 'r')\ninput = fi.read()\nargs = json.loads(input)\nfo = open('<OUTPUTFILE>', 'w')\nsss = sssa()\nfo.write(json.dumps(sss.create(int(args[0]), int(args[1]), args[2].encode('utf-8'))))\nfo.close()\n"
+				},
+				{
+					"Type": "Go",
+					"Contents": "package main\n\nimport (\n\"github.com/SSSaaS/go-libtest/libs/sssa-golang\"\n\"io/ioutil\"\n\"encoding/json\"\n\"strconv\"\n)\nfunc main() {\ninput_data, _ := ioutil.ReadFile(\"<INPUTFILE>\")\nvar args []string\njson.Unmarshal(input_data, &args)\nmin, _ := strconv.Atoi(args[0])\nshares, _ := strconv.Atoi(args[1])\nsecret := string(args[2])\ndata := sssa.Create(min, shares, secret)\noutput, _ := json.Marshal(data)\nioutil.WriteFile(\"<OUTPUTFILE>\", output, 0644)\n}\n"
+				},
+				{
+					"Type": "JS",
+					"Contents": "var fs = require('fs');\nvar sssa = require('../libs/sssa-js');\nvar file = fs.readFileSync('<INPUTFILE>', 'utf8');\ndata = JSON.parse(file);\nfs.writeFileSync('<OUTPUTFILE>', JSON.stringify(sssa.create(parseInt(data[0]), parseInt(data[1]), data[2])));\n"
+				}
+			]
+		},
+		{
+			"Name": "SSSA-Combine",
+			"Code": [
+				{
+					"Type": "Ruby",
+					"Contents": "# - Ruby - #\nrequire 'json'\nrequire_relative '../libs/sssa-ruby/lib/sssa.rb'\n\ninput = File.read('<INPUTFILE>')\nargs = JSON.parse(input)\no = File.new('<OUTPUTFILE>', 'w')\no.write SSSA::combine(args).to_json\no.close\n"
+				},
+				{
+					"Type": "Python",
+					"Contents": "# - Python - #\nimport json\nimport sys\nsys.path.insert(0, './libs/sssa-python')\nfrom SSSA import sssa\nfi = open('<INPUTFILE>', 'r')\ninput = fi.read()\nargs = json.loads(input)\nfo = open('<OUTPUTFILE>', 'w')\nsss = sssa()\nfor index,a in enumerate(args):\n\targs[index] = a.encode('utf-8')\n\nfo.write(json.dumps(sss.combine(args)))\nfo.close()\n"
+				},
+				{
+					"Type": "Go",
+					"Contents": "package main\n\nimport (\n\"github.com/SSSaaS/go-libtest/libs/sssa-golang\"\n\"io/ioutil\"\n\"encoding/json\"\n)\nfunc main() {\ninput_data, _ := ioutil.ReadFile(\"<INPUTFILE>\")\nvar args []string\njson.Unmarshal(input_data, &args)\ndata := sssa.Combine(args)\noutput, _ := json.Marshal(data)\nioutil.WriteFile(\"<OUTPUTFILE>\", output, 0644)\n}\n"
+				},
+				{
+					"Type": "JS",
+					"Contents": "var fs = require('fs');\nvar sssa = require('../libs/sssa-js');\nvar file = fs.readFileSync('<INPUTFILE>', 'utf8');\ndata = JSON.parse(file);\nfs.writeFileSync('<OUTPUTFILE>', JSON.stringify(sssa.combine(data)));\n"
+				}
+			]
+		}
+	]
+}

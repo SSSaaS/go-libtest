@@ -21,7 +21,7 @@ before_script:
     - ruby --version
     - go version
     - go get github.com/SSSaaS/go-libtest
-    - cd $GOPATH/github.com/SSSaaS/go-libtest
+    - cd $GOPATH/src/github.com/SSSaaS/go-libtest
     - mkdir libs
     - cd libs
     - git clone https://github.com/SSSaaS/sssa-golang

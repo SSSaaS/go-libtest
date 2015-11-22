@@ -12,8 +12,7 @@ addons:
             - golang-go
 
 env:
-    - GOARCH=amd64
-    - GOPATH="/home/travis/.gimme/versions/go1.4.1.linux.amd64/"
+    - GOARCH="amd64" GOPATH="/home/travis/.gimme/versions/go1.4.1.linux.amd64/"
 
 before_script:
     - node --version
@@ -21,6 +20,8 @@ before_script:
     - python3 --version
     - ruby --version
     - go version
+    - go get github.com/SSSaaS/go-libtest
+    - cd $GOPATH/github.com/SSSaaS/go-libtest
     - mkdir libs
     - cd libs
     - git clone https://github.com/SSSaaS/sssa-golang

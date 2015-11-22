@@ -1,4 +1,6 @@
 # go-libtest
+[![Build Status](https://travis-ci.org/SSSaaS/go-libtest.svg?branch=master)](https://travis-ci.org/SSSaaS/go-libtest)
+
 Cross-language library tester written in Go.
 
     Copyright (C) 2015 Alexander Scheel, Joel May, Matthew Burket  

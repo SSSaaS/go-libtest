@@ -1,7 +1,7 @@
-language: go
+language: node_js
 
-go:
-    - 1.5
+node_js:
+    - "4.0"
 
 addons:
     apt:
@@ -9,7 +9,7 @@ addons:
             - ruby1.9.3-full
             - python2
             - python3
-            - nodejs-legacy
+            - golang-go
 
 env:
     - GOARCH=amd64
@@ -28,7 +28,19 @@ before_script:
     - git clone https://github.com/SSSaaS/sssa-ruby
     - cd sssa-js
     - npm install
-    - cd ../../
+    - cd ../
+    - cd sssa-golang
+    - go test
+    - cd ../sssa-python
+    - python2 ./utils_tests.py
+    - python2 ./sssa_tests.py
+    - python3 ./utils_tests.py
+    - python3 ./sssa_tests.py
+    - cd ../sssa-ruby
+    - ruby ./tests/all.rb
+    - cd ../sssa-js
+    - node ./test/sssa.js
+    - cd ../
 
 script:
     - go run ./go-libtest.go ./specs/travis/*.json

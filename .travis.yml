@@ -21,7 +21,9 @@ before_script:
     - git clone https://github.com/SSSaaS/sssa-python
     - git clone https://github.com/SSSaaS/sssa-js
     - git clone https://github.com/SSSaaS/sssa-ruby
-    - cd ../
+    - cd sssa-js
+    - npm install
+    - cd ../../
 
 script:
     - go run ./go-libtest.go ./specs/travis/*.json

@@ -1,9 +1,6 @@
 image: debian:stable
 
 before_script:
-    - apt-get install python-software-properties
-    - apt-add-repository ppa:chris-lea/node.js
-    - apt-get update
     - apt-get install nodejs ruby1.9.3-full python2 python3 golang-go
     - node --version
     - python2 --version

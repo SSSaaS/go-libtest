@@ -1,0 +1,38 @@
+image: debian:stable
+
+before_script:
+    - apt-get install python-software-properties
+    - apt-add-repository ppa:chris-lea/node.js
+    - apt-get update
+    - apt-get install nodejs ruby1.9.3-full python2 python3 golang-go
+    - node --version
+    - python2 --version
+    - python3 --version
+    - ruby --version
+    - go version
+    - go get github.com/SSSaaS/go-libtest
+    - cd $GOPATH/src/github.com/SSSaaS/go-libtest
+    - mkdir libs
+    - cd libs
+    - git clone https://github.com/SSSaaS/sssa-golang
+    - git clone https://github.com/SSSaaS/sssa-python
+    - git clone https://github.com/SSSaaS/sssa-js
+    - git clone https://github.com/SSSaaS/sssa-ruby
+    - cd sssa-js
+    - npm install
+    - cd ../
+    - cd sssa-golang
+    - go test
+    - cd ../sssa-python
+    - python2 ./utils_tests.py
+    - python2 ./sssa_tests.py
+    - python3 ./utils_tests.py
+    - python3 ./sssa_tests.py
+    - cd ../sssa-ruby
+    - ruby ./tests/all.rb
+    - cd ../sssa-js
+    - node ./test/sssa.js
+    - cd ../../
+tests:
+  script:
+    - go run ./go-libtest.go ./specs/travis/*.json

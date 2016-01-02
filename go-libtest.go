@@ -2,16 +2,16 @@ package main
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/SSSaaS/go-libtest/settings"
 	"github.com/SSSaaS/go-libtest/tests"
 	"io/ioutil"
-	"time"
-	"fmt"
 	"os"
+	"time"
 )
 
 func main() {
-	if (len(os.Args) == 1) {
+	if len(os.Args) == 1 {
 		fmt.Println("Error! Must specify at least one spec file:")
 		fmt.Println("")
 		fmt.Println("Usage: go-libtest spec1.json [spec2.json ... specn.json]")

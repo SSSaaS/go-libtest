@@ -1,13 +1,13 @@
 package runners
 
 import (
+	"encoding/json"
+	"fmt"
 	"github.com/SSSaaS/go-libtest/settings"
 	"io/ioutil"
 	"math/rand"
-	"strings"
-	"encoding/json"
 	"os/exec"
-	"fmt"
+	"strings"
 )
 
 type Runners struct {
@@ -19,11 +19,11 @@ type Runners struct {
 
 func (r *Runners) Random() {
 	const letterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    b := make([]byte, 15)
-    for i := range b {
-        b[i] = letterBytes[rand.Int63() % int64(len(letterBytes))]
-    }
-    r.datacode = string(b)
+	b := make([]byte, 15)
+	for i := range b {
+		b[i] = letterBytes[rand.Int63()%int64(len(letterBytes))]
+	}
+	r.datacode = string(b)
 }
 
 func (r *Runners) CallRunner(language settings.Langs, function string) {
@@ -36,35 +36,35 @@ func (r *Runners) CallRunner(language settings.Langs, function string) {
 					var basepath string = "./tmp/" + language.Name + "-" + language.Type + "-" + r.datacode + "-"
 
 					var prog_data string = r.Settings.Functions[f].Code[c].Contents
-					prog_data = strings.Replace(prog_data, "<INPUTFILE>", basepath + "input", -1)
-					prog_data = strings.Replace(prog_data, "<OUTPUTFILE>", basepath + "output", -1)
+					prog_data = strings.Replace(prog_data, "<INPUTFILE>", basepath+"input", -1)
+					prog_data = strings.Replace(prog_data, "<OUTPUTFILE>", basepath+"output", -1)
 
 					input, err := json.Marshal(r.Input)
 					r.Check(err)
 
-					err = ioutil.WriteFile(basepath + "prog." + language.Extension, []byte(prog_data), 0644)
+					err = ioutil.WriteFile(basepath+"prog."+language.Extension, []byte(prog_data), 0644)
 					r.Check(err)
 
-					err = ioutil.WriteFile(basepath + "input", input, 0644)
+					err = ioutil.WriteFile(basepath+"input", input, 0644)
 					r.Check(err)
 
 					if language.Precommand != "" {
 						args := strings.Split(language.Precommand, " ")
 						comm := exec.Command(args[0], args[1:]...)
 						message, err := comm.CombinedOutput()
-						if (err != nil) {
-							fmt.Println("Pre-Command Error:\n"+string(message)+"\n")
+						if err != nil {
+							fmt.Println("Pre-Command Error:\n" + string(message) + "\n")
 							fmt.Println(string(message))
 							r.Check(err)
 						}
 					}
 
 					if language.Command != "" {
-						args := strings.Split(language.Command + " " + basepath + "prog." + language.Extension, " ")
+						args := strings.Split(language.Command+" "+basepath+"prog."+language.Extension, " ")
 						comm := exec.Command(args[0], args[1:]...)
 						message, err := comm.CombinedOutput()
-						if (err != nil) {
-							fmt.Println("Command Error:\n"+string(message)+"\n")
+						if err != nil {
+							fmt.Println("Command Error:\n" + string(message) + "\n")
 							r.Check(err)
 						}
 
@@ -84,8 +84,8 @@ func (r *Runners) CallRunner(language settings.Langs, function string) {
 						args := strings.Split(language.Postcommand, " ")
 						comm := exec.Command(args[0], args[1:]...)
 						message, err := comm.CombinedOutput()
-						if (err != nil) {
-							fmt.Println("Post-Command Error:\n"+string(message)+"\n")
+						if err != nil {
+							fmt.Println("Post-Command Error:\n" + string(message) + "\n")
 							r.Check(err)
 						}
 					}

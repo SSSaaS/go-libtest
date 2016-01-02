@@ -42,7 +42,7 @@ func (t *Tests) XChain(data interface{}, input string, output string, result int
 }
 
 func (t Tests) Success(duration time.Duration) {
-	fmt.Println("ok @ " + t.Method + " in", fmt.Sprintf("%.3f", duration.Seconds()), "s")
+	fmt.Println("ok @ "+t.Method+" in", fmt.Sprintf("%.3f", duration.Seconds()), "s")
 }
 
 func (t Tests) XFatal(output interface{}, expected interface{}, a int, b int) {
